@@ -1,0 +1,17 @@
+{% load static %}
+<!Doctype html>
+<html>
+    <head>
+        <title>{% if title %}{{title}}{% else %}Shoppoholic.com{% endif %}</title>
+        {% include 'base/css.html' %}
+        <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+        <link rel="icon" type="image/svg" href="{% static "assets/icon.svg" %}">
+        {% block headcontent %}{% endblock %}
+    </head>
+    <body>
+        {% include 'base/navbar.html' %}
+        {% block content %}
+        {% endblock %}
+        {% include 'base/js.html' %}
+    </body>
+</html>

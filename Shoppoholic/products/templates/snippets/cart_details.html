@@ -1,0 +1,17 @@
+<div class="cart-container">
+    <p class="text-center">Your Cart Details</p>
+    <hr>
+    <div class="products-sm">
+        {% for product in cart.products.all %}
+            {% include "snippets/banner_small.html" with object=product %}
+        {% endfor %}
+    </div>
+    <div class="other-details pt-3">
+        {% if cart.total %}
+            <p>Total: <b>&#8377;{{ cart.total }}</b></p>
+            <button class="btn btn-primary">Checkout</button>
+        {% else %}
+            <p>Add items to fill your cart.</p>
+        {% endif %}
+    </div>
+</div>

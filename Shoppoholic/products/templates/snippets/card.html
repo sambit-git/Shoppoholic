@@ -1,0 +1,16 @@
+</style>
+<div class="card" style="width: 18rem;">
+    {% if product.image %}
+        <img src={{ object.image.url }} class="card-img-top" alt="{{ object.title }}" >
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ object.title }}</h5>
+      <p class="card-text">{{ object.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ object.price }}</li>
+    </ul>
+    <div class="card-body">
+      <a href="{% url 'products:detail' slug=object.slug %}" class="card-link">View</a>
+    </div>
+  </div>

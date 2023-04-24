@@ -29,14 +29,32 @@ class ContactForm(forms.Form):
         return email
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput())
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        "class": "form-control m-2",
+        "placeholder": "username"
+    }), label='')
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        "class": "form-control m-2",
+        "placeholder": "password"
+    }), label='')
 
 class RegisterForm(forms.Form):
-    username = forms.CharField()
-    email = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        "class": "form-control m-2",
+        "placeholder": "username"
+    }), label='')
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        "class": "form-control m-2",
+        "placeholder": "email"
+    }), label='')
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        "class": "form-control m-2",
+        "placeholder": "password"
+    }), label='')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+        "class": "form-control m-2",
+        "placeholder": "Confirm Password"
+    }), label="")
     
     def clean_email(self):
         email = super().clean().get("email")

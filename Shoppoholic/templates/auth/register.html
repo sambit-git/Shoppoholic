@@ -1,15 +1,18 @@
-<div class="container">
-    <div class="row">
-        {% if form %}
-            <div class="col-6">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button class="btn btn-success m-2">Submit</button>
-                </form>
-            </div>
-        {% else %}
-            <div class="col"><h1 class="text-danger">Form Unavailable</h1></div>
-        {% endif %}
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% if form %}
+                <div class="col-6">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="btn btn-success m-2">Submit</button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="col"><h1 class="text-danger">Form Unavailable</h1></div>
+            {% endif %}
+        </div>
     </div>
-</div>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block headcontent %}
+    <link rel="stylesheet" href='{% static "snippets/styles/banner.css" %}'>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        {% for product in object_list.products.all %}
+            {% include "snippets/banner.html" with object=product %}
+        {% endfor %}
+    </div>
+{% endblock content %}

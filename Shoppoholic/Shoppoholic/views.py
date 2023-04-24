@@ -58,6 +58,10 @@ def login_page(request):
     print(request.user.is_authenticated)
     return render(request, "auth/login.html", context)
 
+def logout_page(request):
+    logout(request)
+    return redirect("/")
+
 User = get_user_model()
 def register_page(request):
     form = RegisterForm(request.POST or None)
