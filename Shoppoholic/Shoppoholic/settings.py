@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # apps
+    'accounts',
     'cart',
+    'orders',
     'products',
     'search',
     'tags',
@@ -86,6 +88,7 @@ DATABASES = {
     }
 }
 
+# LOGIN_URL = "accounts/login"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -9,7 +9,7 @@
     <div class="other-details pt-3">
         {% if cart.total %}
             <p>Total: <b>&#8377;{{ cart.total }}</b></p>
-            <button class="btn btn-primary">Checkout</button>
+            <a href="{% url 'cart:checkout' %}" class="btn btn-primary">Checkout</a>
         {% else %}
             <p>Add items to fill your cart.</p>
         {% endif %}

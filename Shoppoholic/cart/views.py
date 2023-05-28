@@ -3,6 +3,7 @@ from django.views.generic import ListView
 
 from .models import Cart
 from products.models import Product
+from orders.models import Order
 
 class CartListView(ListView):
     template_name = "cart/home.html"
@@ -25,3 +26,11 @@ def cart_update(request):
     else:
         cart.products.add(product)
     return redirect("products:all")
+
+def checkout(request):
+    cart_obj, _ = Cart.objects.get_or_new(request)
+    order_obj, _ = Order.objects.get_or_create(cart=cart_obj)
+    print(cart_obj.total)
+    if cart_obj.total == 0:
+        return redirect("products:all")
+    return render(request, "cart/checkout.html", {"object": order_obj})
