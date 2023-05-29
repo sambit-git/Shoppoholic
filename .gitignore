@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # project static files
-static-cdn/
+static-cdn/static-root
 shoppoholic/static
