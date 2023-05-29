@@ -11,7 +11,9 @@ def login_page(request):
     
     context = {
         'title': "Shoppoholic - Login",
-        "form": form
+        "form": form,
+        "formlabel": "Login to Shoppoholic",
+        "endpoint": redirect("accounts:login").url
     }
     if form.is_valid():
         username = form.cleaned_data.get("username")
@@ -24,7 +26,7 @@ def login_page(request):
             return redirect("/")
             # Redirect to success page
         else:...
-    return render(request, "accounts/login.html", context)
+    return render(request, "accounts/accounts.html", context)
 
 def logout_page(request):
     logout(request)
@@ -35,7 +37,9 @@ def register_page(request):
     form = RegisterForm(request.POST or None)
     context = {
         "title": "Shoppoholic - Register",
-        "form": form
+        "form": form,
+        "formlabel": "Register with Shoppoholic",
+        "endpoint": redirect("accounts:register").url
     }
     if form.is_valid():
         username = form.cleaned_data.get("username")
@@ -43,4 +47,4 @@ def register_page(request):
         email = form.cleaned_data.get("email")
         User.objects.create_user(username=username, password=password, email=email)
         return redirect("accounts:login")
-    return render(request, "accounts/register.html", context)
+    return render(request, "accounts/accounts.html", context)

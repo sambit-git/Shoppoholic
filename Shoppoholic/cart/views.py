@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from .models import Cart
 from products.models import Product
 from orders.models import Order
+from accounts.forms import LoginForm
 
 class CartListView(ListView):
     template_name = "cart/home.html"
@@ -33,4 +34,10 @@ def checkout(request):
     print(cart_obj.total)
     if cart_obj.total == 0:
         return redirect("products:all")
-    return render(request, "cart/checkout.html", {"object": order_obj})
+    context = {
+        "object": order_obj,
+        "form": LoginForm(),
+        "endpoint": redirect("accounts:login").url,
+        "formlabel": "Login to continue checkout"
+        }
+    return render(request, "cart/checkout.html", context)

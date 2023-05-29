@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-Cart Total: {{object.cart.total}} <br>
-Shipping: {{object.shipping_total}} <br>
-Order Total: {{object.total}} <br>
-<a class="btn btn-block btn-primary" href="{% url 'products:all' %}">Go Back to Cart</a>
+    {% if not billing_profile %}
+        {% include 'accounts/snippets/form.html' %}
+    {% else %}
+        Cart Total: {{object.cart.total}} <br>
+        Shipping: {{object.shipping_total}} <br>
+        Order Total: {{object.total}} <br>
+        <a class="btn btn-block btn-primary" href="{% url 'products:all' %}">Go Back to Cart</a>
+    {% endif %}
 {% endblock %}

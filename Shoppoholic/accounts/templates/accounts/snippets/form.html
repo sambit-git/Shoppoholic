@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        {% if form %}
+            <div class="col-6">
+                <p class="h5 text-center m-3">{{ formlabel }}</p>
+                <form method="POST" action={{ endpoint }} class="border border-dark-subtle p-4">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button class="btn btn-success col-12 mt-2 mb-2">Submit</button>
+                </form>
+            </div>
+        {% else %}
+            <div class="col"><h1 class="text-danger">Form Unavailable</h1></div>
+        {% endif %}
+    </div>
+</div>

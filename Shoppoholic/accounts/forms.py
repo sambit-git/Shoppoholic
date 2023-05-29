@@ -5,29 +5,29 @@ User = get_user_model()
 
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={
-        "class": "form-control m-2",
+        "class": "form-control mt-2 mb-2",
         "placeholder": "username"
     }), label='')
     password = forms.CharField(widget=forms.PasswordInput(attrs={
-        "class": "form-control m-2",
+        "class": "form-control mt-2 mb-2",
         "placeholder": "password"
     }), label='')
 
 class RegisterForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={
-        "class": "form-control m-2",
+        "class": "form-control mt-2 mb-2",
         "placeholder": "username"
     }), label='')
     email = forms.CharField(widget=forms.EmailInput(attrs={
-        "class": "form-control m-2",
+        "class": "form-control mt-2 mb-2",
         "placeholder": "email"
     }), label='')
     password = forms.CharField(widget=forms.PasswordInput(attrs={
-        "class": "form-control m-2",
+        "class": "form-control mt-2 mb-2",
         "placeholder": "password"
     }), label='')
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
-        "class": "form-control m-2",
+        "class": "form-control mt-2 mb-2",
         "placeholder": "Confirm Password"
     }), label="")
     
