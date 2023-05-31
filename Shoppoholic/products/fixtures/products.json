@@ -1,321 +1,285 @@
 [
     {
-        "pk": 1,
         "model": "products.Product",
         "fields": {
             "title"         : "Tshirt",
             "slug"          : "tshirt",
-            "description"   : "Medium sized yellow colored tshirt for men with pacman game theme",
+            "description"   : "Medium sized red colored tshirt for boys",
             "price"         : 450,
-            "image"         : "/products/tshirt.jpg",
+            "image"         : "/products/tshirt.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 2,
         "model": "products.Product",
         "fields": {
             "title"         : "Alarm Clock",
             "slug"          : "alarm-clock",
             "description"   : "An alarm clock with metal body",
             "price"         : 250,
-            "image"         : "/products/alarm-clock.jpg",
+            "image"         : "/products/alarm-clock.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 3,
         "model": "products.Product",
         "fields": {
             "title"         : "Bed",
             "slug"          : "bed",
             "description"   : "A King sized bed having dimension 78x78 inches",
             "price"         : 56999,
-            "image"         : "/products/bed.jpg",
+            "image"         : "/products/bed.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 4,
         "model": "products.Product",
         "fields": {
             "title"         : "Bicycle",
             "slug"          : "bicycle",
-            "description"   : "A pink bicycle for ladies",
+            "description"   : "A lady bicycle",
             "price"         : 3580,
-            "image"         : "/products/bicycle.jpg",
+            "image"         : "/products/bicycle.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 5,
         "model": "products.Product",
         "fields": {
             "title"         : "Painting",
             "slug"          : "painting",
-            "description"   : "A beautilful painting having many beautiful fowers in it\na good decor item for home decoration.",
+            "description"   : "A beautilful painting of Kingfisher Bird\na good decor item for home decoration.",
             "price"         : 2799,
-            "image"         : "/products/flowers-painting.jpg",
+            "image"         : "/products/painting.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 6,
         "model": "products.Product",
         "fields": {
             "title"         : "Camera",
             "slug"          : "camera",
             "description"   : "A digital camera with 18-50mm lens for capturing high resolution images",
             "price"         : 33000,
-            "image"         : "/products/camera.jpg",
+            "image"         : "/products/camera.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 7,
         "model": "products.Product",
         "fields": {
             "title"         : "Coffee Table and Chair",
             "slug"          : "coffee-table-chair",
             "description"   : "A set of 2 beautifully crafted chairs and a round table\nSuitable for 2 person coversation over a coffee or discuss politics while reading news paper",
             "price"         : 4750,
-            "image"         : "/products/coffee-chair-tables.jpg",
+            "image"         : "/products/coffee-table.jpg",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 8,
         "model": "products.Product",
         "fields": {
             "title"         : "Cup Cake",
             "slug"          : "cup-cake",
-            "description"   : "A creamy pinapple flavored cupcake with ",
+            "description"   : "A creamy pinapple flavored cupcake with creamy strawberry toppings",
             "price"         : 25,
-            "image"         : "/products/cup-cake.jpg",
+            "image"         : "/products/cupcake.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 9,
         "model": "products.Product",
         "fields": {
             "title"         : "Decorative Pots",
             "slug"          : "decorative-pots",
-            "description"   : "Pots having reflective crystals engraved outside so as to glitter everytime.",
+            "description"   : "A nice wallpaper for kids or girls",
             "price"         : 349,
-            "image"         : "/products/decorative-pots.jpg",
+            "image"         : "/products/wallpaper.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 10,
         "model": "products.Product",
         "fields": {
             "title"         : "Guitar",
             "slug"          : "guitar",
             "description"   : "An electric guitar",
             "price"         : 9785,
-            "image"         : "/products/electric-guitar.jpg",
+            "image"         : "/products/guitar.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 11,
         "model": "products.Product",
         "fields": {
             "title"         : "Spectacle",
             "slug"          : "spectacle",
-            "description"   : "A spectacle with blue-ray blocking anti reflective and anti glaring effects\nBest to use while watching at any screens for better eye protection\nThis spectacle has 0 power, so if you have eye sight issue then consult your doctor before making the purchase",
+            "description"   : "A spectacle with blue-ray blocking anti reflective and anti glaring effects thats classy and trendy\nBest to use while watching at any screens for better eye protection\nThis spectacle has 0 power, so if you have eye sight issue then consult your doctor before making the purchase",
             "price"         : 1499,
-            "image"         : "/products/eye-glasses.jpg",
+            "image"         : "/products/glasses.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 12,
         "model": "products.Product", 
         "fields": {
             "title"         : "Flowers",
             "slug"          : "flowers",
-            "description"   : "A pot full of artificial flowers for home decoration",
+            "description"   : "A pot full of flowers for home decoration",
             "price"         : 389,
-            "image"         : "/products/flowers.jpg",
+            "image"         : "/products/flowers.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 13,
         "model": "products.Product",
         "fields": {
-            "title"         : "Pot",
-            "slug"          : "pot",
-            "description"   : "Hand crafted pot made up of mud",
+            "title"         : "Cooking Pot",
+            "slug"          : "cooking-pot",
+            "description"   : "A cooking pot for making Biryani",
             "price"         : 120,
-            "image"         : "/products/hand-crafted-pots.jpg",
+            "image"         : "/products/cooking-pot.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 14,
         "model": "products.Product",
         "fields": {
-            "title"         : "iPhone 12 Mini",
-            "slug"          : "iphone-12-mini",
-            "description"   : "iPhone 12 Mini 64GB black color varient",
-            "price"         : 56899,
-            "image"         : "/products/iphone12.jpg",
+            "title"         : "pineApple Mini Ultra Pro Max Plus",
+            "slug"          : "mini-phone",
+            "description"   : "pineApple Mini Ultra Pro Max Plus mobile phone with 256GB RAM and 128TB Memory",
+            "price"         : 289989,
+            "image"         : "/products/mobile.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 15,
         "model": "products.Product",
         "fields": {
-            "title"         : "Gaming PC",
-            "slug"          : "gaming-pc",
-            "description"   : "Custom liquid cooled gaming PC with glass covers and large openings for excillent airflow\nRAM: 16GB\nStorage: 2TB\nProcessor: AMD Ryzen 9 5900x",
-            "price"         : 158900,
-            "image"         : "/products/liquid-cooed-gaming-pc.jpg",
-            "active"        : true,
-            "featured"      : false,
-            "timestamp"     : "2011-09-01T13:20:30+05:00"
-        }
-    },
-    {
-        "pk": 16,
-        "model": "products.Product",
-        "fields": {
-            "title"         : "Apple Mackbook Pro",
-            "slug"          : "macbook-pro",
-            "description"   : "Apple Mackbook Pro 2023 16 inch 1TB",
+            "title"         : "pineApple UltimateBook Pro",
+            "slug"          : "laptop-pinapple-ultimate-pro",
+            "description"   : "pineApple Ultimate Book Pro with 2TB RAM and 512TB storage",
             "price"         : 248000,
-            "image"         : "/products/mackbook.jpg",
+            "image"         : "/products/pc.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 17,
         "model": "products.Product",
         "fields": {
             "title"         : "Music Player",
             "slug"          : "music-player",
             "description"   : "A compact sized music player with airpods",
             "price"         : 3050,
-            "image"         : "/products/pocket-music-player.jpg",
+            "image"         : "/products/ipod.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 18,
         "model": "products.Product",
         "fields": {
             "title"         : "Sports Shoe",
             "slug"          : "sports-shoe",
             "description"   : "Unisex sport shoes for all kind of sports",
             "price"         : 2599,
-            "image"         : "/products/shoes.jpg",
+            "image"         : "/products/shoes.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 19,
         "model": "products.Product",
         "fields": {
-            "title"         : "Human Skeleton",
-            "slug"          : "human-skeleton",
-            "description"   : "Human skeleton with visible organs isde it\nThis should be used for human anatomy in educational institutes",
+            "title"         : "Wrist Watch",
+            "slug"          : "wrist-watch",
+            "description"   : "A nice watch that runs for 10 years without the need to replace the battery or any kind of maintenance",
             "price"         : 1920,
-            "image"         : "/products/skeleton-with-organs.jpg",
+            "image"         : "/products/wristwatch.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 20,
         "model": "products.Product",
         "fields": {
             "title"         : "Teddy Bear",
             "slug"          : "teddy-bear",
             "description"   : "A soft teddy bear filled with cotton and a good toy for kids",
             "price"         : 595,
-            "image"         : "/products/teddy-bear.jpg",
+            "image"         : "/products/teddy-bear.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 21,
         "model": "products.Product",
         "fields": {
             "title"         : "Suitcase",
             "slug"          : "suitcase",
             "description"   : "A suitcase that is good for long trips and vacations",
             "price"         : 2200,
-            "image"         : "/products/travel-suitcase.jpg",
+            "image"         : "/products/travel.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 22,
         "model": "products.Product",
         "fields": {
-            "title"         : "Jacket",
-            "slug"          : "jacket",
-            "description"   : "Jacket for women",
+            "title"         : "Gown",
+            "slug"          : "gown",
+            "description"   : "A party or beach gown for ladies",
             "price"         : 3570,
-            "image"         : "/products/women-jacket.jpg",
+            "image"         : "/products/lady-dress.png",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
         }
     },
     {
-        "pk": 23,
         "model": "products.Product",
         "fields": {
-            "title"         : "Workstation",
-            "slug"          : "workstation",
-            "description"   : "A workstation setup with height adjustable tables and chairs, multiple displays and display holders and a highend PC",
+            "title"         : "Gown",
+            "slug"          : "gown2",
+            "description"   : "A gown specifically designed for special occasions, best for parties, functions, meetups or any special occasions",
             "price"         : 890760,
-            "image"         : "/products/workstation.jpg",
+            "image"         : "/products/gown.jpg",
             "active"        : true,
             "featured"      : false,
             "timestamp"     : "2011-09-01T13:20:30+05:00"
