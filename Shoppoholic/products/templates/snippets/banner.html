@@ -3,16 +3,16 @@
     <img src="{{ object.image.url }}" alt="{{ object.title }}">
   {% endif %}
   <div class="details">
-    <div class="title h2">{{ object.title }}</div>
+    <div class="fs-6">{{ object.title }}</div>
+    <div class="description text-secondary">{{ object.description|truncatewords:5 }}</div>
     <div class="price text-success">&#8377;{{ object.price }}</div>
-    <div class="description text-secondary">{{ object.description }}</div>
   </div>
   <div class="actions">
-    <button class="btn btn-success">
+    {% comment %} <button class="btn btn-success">
       <a href="{% url 'products:detail' slug=object.slug %}" class="text-light">
         View
       </a>
-    </button>
+    </button> {% endcomment %}
     {% include "snippets/edit_cart.html" with button="Remove" %}
   </div>
 </div>
