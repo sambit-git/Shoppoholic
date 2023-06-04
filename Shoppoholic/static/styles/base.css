@@ -1,3 +1,109 @@
 body{
-    background-color: #e0e0e0;;
+    background-color: #e0e0e0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+}
+
+nav, nav>ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav{
+    height: 4dvh;
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    background-color: #27F;
+    box-shadow: inset 2px 2px 4px #015eff,
+        inset -2px -2px 4px #39F ;
+    margin-bottom: 2rem;
+}
+
+nav>ul{
+    margin: 0;
+}
+
+nav>ul>li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: #ddd;
+}
+
+a:active{
+    color: #fff;
+    font-weight: bold;
+}
+
+.fa-user{
+    padding: 0.5rem;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px #015eff, -2px -2px 4px #39F ;
+}
+
+.active{
+    color: #fff;
+    font-weight: bold;
+}
+
+.content{
+    margin: 0 0 4rem 0;
+}
+
+footer{
+    margin-top: 2rem;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: #27F;
+    color: white;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.input-group{
+    display: flex;
+    height: 3dvh;
+    padding: 1rem;
+    
+}
+.input-group>input, .input-group-append>button{
+    border: none;
+    outline: none;
+}
+.input-group>input{
+    width: 15dvw;
+    padding: 0 1rem;
+    box-shadow: inset 5px 5px 8px #c1c1c1,
+            inset -2px -2px 5px #ffffff;
+}
+.input-group-append>button{
+    height: 100%;
+    width: 4dvw;
+}
+
+.cart-icon{
+    height: 1rem;
+    width: 1rem;
+    object-fit: contain;
+}
+
+.cart-section{
+    width: 4rem;
+}
+
+.cart-count{
+    vertical-align: super;
+    font-size: smaller;
 }

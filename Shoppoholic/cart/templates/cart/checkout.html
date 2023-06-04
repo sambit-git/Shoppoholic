@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if not billing_profile %}
-        {% include 'accounts/snippets/form.html' %}
+        {% include 'accounts/snippets/form.html' with next_url=request.build_absolute_uri %}
     {% else %}
         Cart Total: {{object.cart.total}} <br>
         Shipping: {{object.shipping_total}} <br>

@@ -2,11 +2,13 @@
 {% load static %}
 {% block headcontent %}
     <link rel="stylesheet" href='{% static "snippets/styles/banner.css" %}'>
+    <link rel="stylesheet" href='{% static "snippets/styles/cart_details.css" %}'>
 {% endblock %}
 {% block content %}
-    <div class="container">
+    <div>
         {% for product in object_list.products.all %}
             {% include "snippets/banner.html" with object=product %}
         {% endfor %}
     </div>
+    {% include "snippets/cart_details.html" with cart=object_list %}
 {% endblock content %}

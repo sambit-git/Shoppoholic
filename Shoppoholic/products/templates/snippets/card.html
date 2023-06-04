@@ -1,16 +1,13 @@
-</style>
-<div class="card" style="width: 18rem;">
-    {% if product.image %}
-        <img src={{ object.image.url }} class="card-img-top" alt="{{ object.title }}" >
-    {% endif %}
-    <div class="card-body">
-      <h5 class="card-title">{{ object.title }}</h5>
-      <p class="card-text">{{ object.description }}</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{ object.price }}</li>
-    </ul>
-    <div class="card-body">
-      <a href="{% url 'products:detail' slug=object.slug %}" class="card-link">View</a>
-    </div>
+<div class="card">
+  {% if object.image %}
+    <img src="{{ object.image.url }}" alt="{{ object.title }}">
+  {% endif %}
+  <div class="details">
+    <div class=" p-05">{{ object.title }}</div>
+    <div class="text-secondary p-05">{{ object.description|truncatewords:3 }}</div>
+    <div class="text-success p-05">&#8377;{{ object.price }}</div>
   </div>
+  <div class="actions">
+    {% include "snippets/edit_cart.html" with button="Remove" %}
+  </div>
+</div>

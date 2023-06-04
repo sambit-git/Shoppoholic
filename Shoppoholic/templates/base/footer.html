@@ -1,0 +1,13 @@
+
+{% url 'about' as about_url %}
+{% url 'contact' as contact_url %}
+
+<footer>
+    <div>
+        <a class="nav-link" href="{{ about_url }}">About</a>
+    </div>
+    @2021-2023 Shoppoholic.com
+    <div>
+        <a class="nav-link" href="{{ contact_url }}">Contact Us</a>
+    </div>
+</footer>

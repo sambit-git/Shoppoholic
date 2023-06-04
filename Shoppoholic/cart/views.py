@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from .models import Cart
 from products.models import Product
 from orders.models import Order
+from billing.models import BillingProfile
 from accounts.forms import LoginForm
 
 class CartListView(ListView):
@@ -26,6 +27,7 @@ def cart_update(request):
         cart.products.remove(product)
     else:
         cart.products.add(product)
+    request.session["products_count"] = len(cart.products.all())
     return redirect("products:all")
 
 def checkout(request):
@@ -34,10 +36,18 @@ def checkout(request):
     print(cart_obj.total)
     if cart_obj.total == 0:
         return redirect("products:all")
+    
     context = {
         "object": order_obj,
         "form": LoginForm(),
         "endpoint": redirect("accounts:login").url,
-        "formlabel": "Login to continue checkout"
+        "formlabel": "Login to continue checkout",
         }
+    
+    if request.user.is_authenticated:
+        billing_obj, _ = BillingProfile.objects.get_or_create(
+            user=request.user, email=request.user.email)
+        context["billing_profile"] = billing_obj
+    print(request.user)
+    
     return render(request, "cart/checkout.html", context)

@@ -1,0 +1,75 @@
+.btn{
+    background-color: #ff7c24;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    
+    box-shadow: 2px 2px 4px #bd530c,
+        -2px -2px 4px #ffb98b;
+    width: 100%;
+}
+
+.btn:active{
+    box-shadow: inset 2px 2px 4px #bd530c,
+        inset -2px -2px 4px #ffb98b;
+}
+
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-control{
+    display: block;
+    margin: 1rem;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    box-shadow: 5px 5px 8px #c1c1c1,
+            -2px -2px 5px #ffffff;
+    transition: 1s;
+}
+.form-control:focus{
+    outline: none;
+    letter-spacing: 0.5rem;
+}
+
+.border{
+    border: 1px solid #eee;
+}
+
+.btn-danger{
+    background-color: brown;
+    box-shadow: 2px 2px 4px #5c0000,
+        -2px -2px 4px rgb(255, 165, 165);
+}
+
+.btn-danger:active{
+    box-shadow: inset 2px 2px 4px #5c0000,
+        inset -2px -2px 4px rgb(255, 165, 165);
+}
+
+.p-05{
+    padding: 0.5rem;
+}
+
+.p-1{
+    padding: 1rem;
+}
+
+.text-success{
+    color: green;
+}
+
+.text-secondary{
+    color: #999;
+    font-size: smaller;
+}
+
+.txt-danger{
+    color: #c14848;
+    font-weight: bold;
+    font-size: 1rem;
+}

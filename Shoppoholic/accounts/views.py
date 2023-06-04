@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.utils.http import url_has_allowed_host_and_scheme
+from django.utils.encoding import iri_to_uri
 
 from .forms import LoginForm, RegisterForm
 
@@ -8,7 +9,7 @@ from .forms import LoginForm, RegisterForm
 def login_page(request):
     form = LoginForm(request.POST or None)
     next_url = request.GET.get("next") or request.POST.get("next") or None
-    
+    print(next_url)
     context = {
         'title': "Shoppoholic - Login",
         "form": form,
@@ -21,11 +22,16 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            if url_has_allowed_host_and_scheme(next_url, request.get_host(), True):
-                return redirect(next_url)
+            valid_next_url = url_has_allowed_host_and_scheme(
+                    next_url, request.get_host())
+            print("next url: ", next_url)
+            print("isValid: ", valid_next_url)
+            if valid_next_url:
+                return redirect(iri_to_uri(next_url))
             return redirect("/")
             # Redirect to success page
-        else:...
+        else:
+            context["err_msg"] = "Email/Password is incorrect"
     return render(request, "accounts/accounts.html", context)
 
 def logout_page(request):

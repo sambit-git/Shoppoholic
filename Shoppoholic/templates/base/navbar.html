@@ -1,46 +1,39 @@
+{% load static %}
 {% url 'home' as home_url %}
-{% url 'about' as about_url %}
-{% url 'contact' as contact_url %}
 {% url 'accounts:login' as login_url %}
 {% url 'accounts:register' as register_url %}
 {% url 'accounts:logout' as logout_url %}
 {% url 'products:all' as products_url %}
 {% url 'search:search' as search_url %}
-<nav class="navbar navbar-expand-lg mb-2" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{ home_url }}">Shoppoholic</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ home_url }}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ about_url }}">About</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="{{ products_url }}">Products</a>
-        </li>
-        {% if request.user.is_authenticated %}
-          <li class="nav-item">
-            <a href="{{ logout_url }}" class="nav-link">Logout</a>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a href="{{ login_url }}" class="nav-link">Login</a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ register_url }}" class="nav-link">Register</a>
-          </li>
-        {% endif %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ contact_url }}">Contact Us</a>
-        </li>
-      </ul>
-      {% include "search/search_form.html" %}
-    </div>
-  </div>
+{% url 'cart:home' as cart_url %}
+<nav>
+  <a href="{{ home_url }}">Shoppoholic</a>
+  {% include "search/search_form.html" %}
+  <ul>    
+    <li>
+      <a href="{{ products_url }}">Products</a>
+    </li>
+    {% if request.user.is_authenticated %}
+      <li>
+        <a href="{{ logout_url }}">Logout</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="{{ login_url }}">Login</a>
+      </li>
+      <li>
+        <a href="{{ register_url }}">Register</a>
+      </li>
+    {% endif %}
+    <li class="cart-section">
+      <a href={{ cart_url }}>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count" >
+          {% if request.session.products_count %}
+            {{ request.session.products_count }}
+          {% endif %}
+        </span>
+      </a>
+    </li>
+  </ul>
 </nav>

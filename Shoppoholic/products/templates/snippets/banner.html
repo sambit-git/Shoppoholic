@@ -1,18 +1,14 @@
 <div class="banner">
   {% if object.image %}
-    <img src="{{ object.image.url }}" alt="{{ object.title }}">
+    <img class="img" src="{{ object.image.url }}" alt="{{ object.title }}">
   {% endif %}
   <div class="details">
-    <div class="fs-6">{{ object.title }}</div>
-    <div class="description text-secondary">{{ object.description|truncatewords:5 }}</div>
+    <div class="title">{{ object.title }}</div>
+    <div class="description">{{ object.description }}</div>
     <div class="price text-success">&#8377;{{ object.price }}</div>
   </div>
   <div class="actions">
-    {% comment %} <button class="btn btn-success">
-      <a href="{% url 'products:detail' slug=object.slug %}" class="text-light">
-        View
-      </a>
-    </button> {% endcomment %}
-    {% include "snippets/edit_cart.html" with button="Remove" %}
+    {% comment %} {% include "snippets/cart_details.html" with button="Remove" %} {% endcomment %}
+    {% include "snippets/edit_cart.html" with button="Remove" object=object cart=object_list %}
   </div>
 </div>

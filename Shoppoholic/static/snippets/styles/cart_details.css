@@ -1,0 +1,27 @@
+.content{
+    display: flex;
+    gap: 4rem;
+    width: 100%;
+    align-items: start;
+}
+
+.cart-container{
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 8px #c1c1c1,
+            -2px -2px 5px #ffffff;
+}
+
+.cart-container>div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.cart-container>div>.btn{
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+    grid-column: 1/3;
+}

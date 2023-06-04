@@ -1,4 +1,10 @@
 <form method="GET" action="{% url 'search:search' %}" class="d-flex" role="search">
-    <input class="form-control bg-light me-2" type="search" placeholder="Search" name="q" aria-label="Search">
-    <button class="btn btn-light" type="submit">Search</button>
+<div class="input-group">
+  <input type="search" name="q" placeholder="Search">
+  <div class="input-group-append">
+    <button class="btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+</div>
 </form>

@@ -1,12 +1,16 @@
-.banner{
+.products{
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+}
+
+.card{
     display: flex;
-    height: 15rem;
-    width: 40rem;
+    flex-direction: column;
+    height: 24rem;
+    width: 15rem;
     padding: 0.5rem;
     border-radius: 8px;
-    gap: 2rem;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
     box-shadow:  5px 5px 8px #c1c1c1,
              -2px -2px 5px #ffffff;
 }
@@ -15,24 +19,12 @@ img{
     object-fit: contain;
     height: 15rem;
     width: 100%;
-    max-width: 15rem;
     box-shadow: inset 5px 5px 8px #c1c1c1,
             inset -2px -2px 5px #ffffff;
     background-color: white;
 }
-
 .details{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.description{
-    color: #999;
-}
-
-.actions{
-    align-self: flex-end;
+    flex-grow: 1;
 }
 
 @media only screen and (max-width: 320px){
