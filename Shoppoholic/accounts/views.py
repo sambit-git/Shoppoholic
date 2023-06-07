@@ -3,9 +3,33 @@ from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.encoding import iri_to_uri
 
-from .forms import LoginForm, RegisterForm
+from .models import GuestEmail
+from .forms import LoginForm, RegisterForm, GuestForm
 
 # Create your views here.
+def guest_register_page(request):
+    form = GuestForm(request.POST or None)
+    next_url = request.GET.get("next") or request.POST.get("next") or None
+    context = {
+        'title': "Shoppoholic - Guest Registration",
+        "form": form,
+        "formlabel": "Register as a Guest",
+        "endpoint": redirect("accounts:register_guest").url
+    }
+    if form.is_valid():
+        email = form.cleaned_data.get("email")
+        guest = GuestEmail.objects.create(email=email)
+        request.session["guest_id"] = guest.id
+        valid_next_url = url_has_allowed_host_and_scheme(
+                next_url, request.get_host())
+        if valid_next_url:
+            return redirect(iri_to_uri(next_url))
+        return redirect("/register/")
+    else:
+            return render(request, "accounts/accounts.html", context)
+
+
+
 def login_page(request):
     form = LoginForm(request.POST or None)
     next_url = request.GET.get("next") or request.POST.get("next") or None

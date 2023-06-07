@@ -3,6 +3,12 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+class GuestForm(forms.Form):
+    email   = forms.CharField(widget=forms.EmailInput(attrs={
+        "class": "form-control mt-2 mb-2",
+        "placeholder": "Guest Email ID"
+    }), label="")
+
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={
         "class": "form-control mt-2 mb-2",

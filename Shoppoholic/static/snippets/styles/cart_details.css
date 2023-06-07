@@ -21,7 +21,5 @@
 
 .cart-container>div>.btn{
     padding: 1rem 0;
-    text-align: center;
-    width: 100%;
     grid-column: 1/3;
 }

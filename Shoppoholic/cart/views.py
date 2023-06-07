@@ -5,7 +5,8 @@ from .models import Cart
 from products.models import Product
 from orders.models import Order
 from billing.models import BillingProfile
-from accounts.forms import LoginForm
+from accounts.models import GuestEmail
+from accounts.forms import LoginForm, GuestForm
 
 class CartListView(ListView):
     template_name = "cart/home.html"
@@ -40,14 +41,25 @@ def checkout(request):
     context = {
         "object": order_obj,
         "form": LoginForm(),
-        "endpoint": redirect("accounts:login").url,
-        "formlabel": "Login to continue checkout",
+        "login_endpoint": redirect("accounts:login").url,
+        "login_formlabel": "Login to continue checkout",
+        "guest_form": GuestForm(request.POST or None),
+        "guest_formlabel": "Continue as Guest",
+        "guest_endpoint": redirect("accounts:register_guest").url
         }
     
+    guest_id = request.session.get("guest_id")
     if request.user.is_authenticated:
         billing_obj, _ = BillingProfile.objects.get_or_create(
             user=request.user, email=request.user.email)
         context["billing_profile"] = billing_obj
-    print(request.user)
+    elif guest_id is not None:
+        guest_email = GuestEmail.objects.get(id=guest_id)
+        print("*"*40)
+        print(guest_email)
+        print("*"*40)
+        billing_obj, _ = BillingProfile.objects.get_or_create(
+            email = guest_email)
+        context["billing_profile"] = billing_obj
     
     return render(request, "cart/checkout.html", context)

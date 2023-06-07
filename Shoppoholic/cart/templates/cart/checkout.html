@@ -1,11 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block headcontent %}
+    <link rel="stylesheet" href='{% static "styles/cart/checkout.css" %}'>
+{% endblock %}
 {% block content %}
     {% if not billing_profile %}
-        {% include 'accounts/snippets/form.html' with next_url=request.build_absolute_uri %}
+        {% with endpoint=login_endpoint formlabel=login_formlabel next_url=request.build_absolute_uri %}
+            {% include 'accounts/snippets/form.html' %}
+        {% endwith %}
+
+
+        {% with form=guest_form endpoint=guest_endpoint formlabel=guest_formlabel next_url=request.build_absolute_uri %}
+            {% include 'accounts/snippets/form.html' %}
+        {% endwith  %}
+        
     {% else %}
-        Cart Total: {{object.cart.total}} <br>
-        Shipping: {{object.shipping_total}} <br>
-        Order Total: {{object.total}} <br>
-        <a class="btn btn-block btn-primary" href="{% url 'products:all' %}">Go Back to Cart</a>
+        <div>
+            <p>Cart Total: {{object.cart.total}} </p>
+            <p>Shipping: {{object.shipping_total}} </p>
+            <p>Order Total: {{object.total}} </p>
+            <a class="btn btn-block btn-primary" href="{% url 'products:all' %}">Go Back to Cart</a>
+        </div>
     {% endif %}
 {% endblock %}
