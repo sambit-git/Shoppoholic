@@ -17,6 +17,24 @@ ORDER_STATUS_CHOICES = (
 ('refunded', 'Refunded')
 )
 
+class OrderManager(models.Manager):
+    def new_or_get(self, billing_profile, cart):
+        qs = self.get_queryset().filter(
+            cart=cart,
+            billing_profile=billing_profile,
+            active=True)
+        if qs.count() == 1:
+            obj = qs.first()
+            created = False
+        else:
+            obj = self.model.objects.create(
+                billing_profile=billing_profile,
+                cart=cart
+            )
+            created = True
+        return obj, created
+
+
 class Order(models.Model):
     billing_profile = models.ForeignKey(
         BillingProfile, on_delete=models.CASCADE, null=True, blank=True)
@@ -35,6 +53,8 @@ class Order(models.Model):
         default=40, max_digits=100, decimal_places=2)
     
     active          = models.BooleanField(default=True)
+    
+    objects         = OrderManager()
     
     def __str__(self) -> str:
         super().__str__()
@@ -60,6 +80,13 @@ def unique_id_generator(instance, order_id=None):
 def presave_order_connector(sender, instance, *args, **kwargs):
     if not instance.order_id:
         instance.order_id = unique_id_generator(instance)
+    qs = Order.objects.exclude(
+        billing_profile = instance.billing_profile).filter(
+            cart=instance.cart,
+            active=True
+    )
+    if qs.exists():
+        qs.update(active=False)
 
 pre_save.connect(presave_order_connector, sender=Order)
 
