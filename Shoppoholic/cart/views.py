@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
 from .models import Cart
+from .utils import update_session_products_count
 from products.models import Product
 from orders.models import Order
 from billing.models import BillingProfile
@@ -28,7 +29,7 @@ def cart_update(request):
         cart.products.remove(product)
     else:
         cart.products.add(product)
-    request.session["products_count"] = len(cart.products.all())
+    update_session_products_count(request)
     return redirect("products:all")
 
 def checkout(request):

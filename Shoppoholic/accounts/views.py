@@ -6,6 +6,8 @@ from django.utils.encoding import iri_to_uri
 from .models import GuestEmail
 from .forms import LoginForm, RegisterForm, GuestForm
 
+from cart.utils import update_session_products_count
+
 # Create your views here.
 def guest_register_page(request):
     form = GuestForm(request.POST or None)
@@ -49,6 +51,7 @@ def login_page(request):
                 del request.session.get["guest_id"]
             except:...
             login(request, user)
+            update_session_products_count(request)
             valid_next_url = url_has_allowed_host_and_scheme(
                     next_url, request.get_host())
             print("next url: ", next_url)
