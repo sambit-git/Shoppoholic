@@ -6,7 +6,6 @@ from .utils import update_session_products_count
 from products.models import Product
 from orders.models import Order
 from billing.models import BillingProfile
-from accounts.models import GuestEmail
 from accounts.forms import LoginForm, GuestForm
 
 class CartListView(ListView):
@@ -39,16 +38,7 @@ def checkout(request):
     if cart_obj.total == 0:
         return redirect("products:all")
     
-    guest_id = request.session.get("guest_id")
-    if request.user.is_authenticated:
-        billing_obj, _ = BillingProfile.objects.get_or_create(
-            user=request.user, email=request.user.email)
-    elif guest_id is not None:
-        guest_email = GuestEmail.objects.get(id=guest_id)
-        billing_obj, _ = BillingProfile.objects.get_or_create(
-            email = guest_email)
-    else:
-        billing_obj = None
+    billing_obj, _ = BillingProfile.objects.new_or_get(request)
     
     if billing_obj is not None:
         order_qs = Order.objects.filter(
