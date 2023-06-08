@@ -4,6 +4,7 @@
     <link rel="stylesheet" href='{% static "styles/cart/checkout.css" %}'>
 {% endblock %}
 {% block content %}
+    {% comment %} {{ object.order_id }} --- {{ object.cart.id }} {% endcomment %}
     {% if not billing_profile %}
         {% with endpoint=login_endpoint formlabel=login_formlabel next_url=request.build_absolute_uri %}
             {% include 'accounts/snippets/form.html' %}
