@@ -4,6 +4,7 @@ import string
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 
+from billing.models import BillingProfile
 from cart.models import Cart
 
 ORDER_STATUS_CHOICES = (
@@ -17,14 +18,23 @@ ORDER_STATUS_CHOICES = (
 )
 
 class Order(models.Model):
+    billing_profile = models.ForeignKey(
+        BillingProfile, on_delete=models.CASCADE, null=True, blank=True)
+    
     order_id        = models.CharField(max_length=120, blank=True, null=True)
+    
     cart            = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    
     status          = models.CharField(
         max_length=120, default='created', choices=ORDER_STATUS_CHOICES)
+    
     shipping_total  = models.DecimalField(
         default=40, max_digits=100, decimal_places=2)
+    
     total           = models.DecimalField(
         default=40, max_digits=100, decimal_places=2)
+    
+    active          = models.BooleanField(default=True)
     
     def __str__(self) -> str:
         super().__str__()

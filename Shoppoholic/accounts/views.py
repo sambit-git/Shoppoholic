@@ -45,6 +45,9 @@ def login_page(request):
         password = form.cleaned_data.get("password")
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            try:
+                del request.session.get["guest_id"]
+            except:...
             login(request, user)
             valid_next_url = url_has_allowed_host_and_scheme(
                     next_url, request.get_host())
